@@ -1,0 +1,22 @@
+ALGORITHM EXPLANATION & JUSTIFICATION
+
+1.0 get the word and process if necessary
+2.0 compute midpoint as termination point, rounded down to handle odd lengths
+3.0 compare i-th and (n-i)th character one at a time
+ 3.1 at any point that the characters don't match, return False
+ 3.2 if the loop does not terminate and we reach the midpoint, return True
+
+
+
+an alternative approach is to take two slices up to the midpoint, flip one and compare both substrings
+
+however, the one-by-one approach has a better average time and space complexity 
+since the slice approach *always* compares two halves. 
+This approach can terminate much faster (best-case is if the mismatch is outer-most).
+
+
+that being said, this improvement would only be significant for super large words, which is probably unlikely input.
+that being said being said, I argue that the char-by-char approach is better in principle.
+
+
+A comparable approach is by recursively checking a string then shaving off characters, but this seems a bit overkill (and might be worse for memory) when a simple for-loop will work.
